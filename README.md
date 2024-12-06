@@ -1,7 +1,9 @@
 # Explicação do Dataset: Wav2Vec 2.0
 
 ## O que é o Wav2Vec 2.0?
-O **Wav2Vec 2.0** é um modelo desenvolvido pelo **Facebook AI Research (FAIR)** para aprendizado automático de representações de áudio. Ele utiliza um método de pré-treinamento baseado em aprendizado auto-supervisionado, permitindo reconhecimento de fala eficiente com poucos dados rotulados.
+Wav2Vec é um modelo de aprendizado profundo desenvolvido pela Meta AI (antiga Facebook AI) para processamento de fala. Ele foi projetado para tarefas como reconhecimento automático de fala (ASR, Automatic Speech Recognition) e transcrição de áudio em texto. A abordagem do Wav2Vec é baseada em aprendizado auto-supervisionado, o que significa que ele pode ser treinado em grandes quantidades de dados de áudio não rotulados, tornando-o altamente eficiente e escalável.
+
+
 
 ---
 
