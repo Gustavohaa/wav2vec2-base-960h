@@ -1,50 +1,52 @@
-# Wav2Vec2-Base-960h
-**Facebook AI's Wav2Vec2 Model**
+# Explicação do Dataset: Wav2Vec 2.0
 
-## Descrição
-O modelo **Wav2Vec2-Base-960h** é uma versão base do Wav2Vec2, pré-treinado e ajustado utilizando 960 horas do dataset Librispeech, com amostras de áudio em 16 kHz. Para obter resultados ideais, certifique-se de que a entrada de áudio também esteja amostrada a 16 kHz.
-
----
-
-## Publicação
-**Título do Paper:** *wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations*
-
-**Autores:** Alexei Baevski, Henry Zhou, Abdelrahman Mohamed, Michael Auli  
-**Data de Publicação:** 24 de setembro de 2020  
-
-**Resumo:**  
-O Wav2Vec 2.0 introduz um modelo que aprende representações poderosas a partir de áudio não anotado e, posteriormente, é ajustado em dados transcritos. Este modelo é capaz de superar os melhores métodos semi-supervisionados, mesmo utilizando menos dados anotados.  
-
-Os experimentos demonstraram resultados impressionantes em benchmarks como o LibriSpeech, com WERs de 1.8/3.3 (clean/other) utilizando todos os dados anotados e até 4.8/8.2 com apenas 10 minutos de dados anotados e 53.000 horas de dados não anotados.
-
-Leia o paper completo [aqui](https://github.com/pytorch/fairseq/tree/master/examples/wav2vec#wav2vec-20).
+## O que é o Wav2Vec 2.0?
+O **Wav2Vec 2.0** é um modelo desenvolvido pelo **Facebook AI Research (FAIR)** para aprendizado automático de representações de áudio. Ele utiliza um método de pré-treinamento baseado em aprendizado auto-supervisionado, permitindo reconhecimento de fala eficiente com poucos dados rotulados.
 
 ---
 
-## Exemplos de Uso
-### Transcrição de Áudio
-O modelo pode ser utilizado para transcrever arquivos de áudio como segue:
+## Origem do Dataset
+O dataset usado para treinar o Wav2Vec 2.0 é baseado em amostras de áudio extraídas de várias fontes. Essas amostras são usadas para:
+- Treinamento de modelos de representação de áudio.
+- Reconhecimento de fala automática.
+- Aprendizado auto-supervisionado.
 
-```python
-from transformers import Wav2Vec2Processor, Wav2Vec2ForCTC
-from datasets import load_dataset
-import torch
+Para detalhes técnicos, acesse o [repositório oficial no GitHub](#referências).
 
-# Carregar o modelo e o processador
-processor = Wav2Vec2Processor.from_pretrained("facebook/wav2vec2-base-960h")
-model = Wav2Vec2ForCTC.from_pretrained("facebook/wav2vec2-base-960h")
+---
 
-# Carregar dataset de exemplo
-ds = load_dataset("patrickvonplaten/librispeech_asr_dummy", "clean", split="validation")
+## Estrutura do Dataset
+A estrutura do dataset pode incluir:
+- **Amostras de áudio**: Clipes de áudio em diferentes idiomas.
+- **Transcrições (opcional)**: Textos associados ao áudio, quando disponíveis.
+- **Formato dos arquivos**: Geralmente, os dados estão em formatos como `.wav` para áudio e `.txt` para transcrições.
 
-# Tokenizar o áudio
-input_values = processor(ds[0]["audio"]["array"], return_tensors="pt", padding="longest").input_values
+---
 
-# Obter os logits
-logits = model(input_values).logits
+## Uso do Dataset
+### Pré-treinamento:
+- O modelo aprende representações de áudio diretamente a partir dos dados brutos.
+- Essa fase **não requer rótulos**.
 
-# Decodificar a transcrição
-predicted_ids = torch.argmax(logits, dim=-1)
-transcription = processor.batch_decode(predicted_ids)
+### Fine-tuning:
+- Com um pequeno conjunto de dados rotulados, o modelo é ajustado para tarefas específicas, como **reconhecimento de fala**.
 
-print("Transcrição:", transcription)
+---
+
+## Benefícios do Dataset
+- **Alta eficiência**: Resultados de ponta com menos dados rotulados.
+- **Flexibilidade**: Pode ser usado para diversos idiomas e aplicações.
+- **Compatibilidade**: Projetado para integração com o framework **fairseq**.
+
+---
+
+## Como Acessar o Dataset?
+O dataset está disponível no repositório do **Wav2Vec 2.0**. Você pode:
+- Baixá-lo diretamente.
+- Usar scripts de preparação descritos no arquivo `README`.
+
+---
+
+## Referências
+- [Repositório do Wav2Vec 2.0](https://github.com)
+- Artigo original: *"wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations"* (Paper)
