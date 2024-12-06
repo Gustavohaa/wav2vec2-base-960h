@@ -11,8 +11,6 @@ O dataset usado para treinar o Wav2Vec 2.0 é baseado em amostras de áudio extr
 - Reconhecimento de fala automática.
 - Aprendizado auto-supervisionado.
 
-Para detalhes técnicos, acesse o [repositório oficial no GitHub](#referências).
-
 ---
 
 ## Estrutura do Dataset
@@ -69,14 +67,8 @@ transcription = processor.batch_decode(predicted_ids)
 
 ---
 
-## Como Acessar o Dataset?
-O dataset está disponível no repositório do **Wav2Vec 2.0**. Você pode:
-- Baixá-lo diretamente.
-- Usar scripts de preparação descritos no arquivo `README`.
 
----
-
-##Autores
+## Autores
 - Alexei Baevski
 - Henry Zhou
 - Abdelrahman Mohamed
