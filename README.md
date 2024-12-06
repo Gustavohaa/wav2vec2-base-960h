@@ -48,5 +48,5 @@ O dataset está disponível no repositório do **Wav2Vec 2.0**. Você pode:
 ---
 
 ## Referências
-- [Repositório do Wav2Vec 2.0](https://github.com)
+- [Repositório do Wav2Vec 2.0](https://github.com](https://github.com/facebookresearch/fairseq/tree/main/examples/wav2vec#wav2vec-20)
 - Artigo original: *"wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations"* (Paper)
