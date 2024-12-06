@@ -3,8 +3,6 @@
 ## O que é o Wav2Vec 2.0?
 Wav2Vec é um modelo de aprendizado profundo desenvolvido pela Meta AI (antiga Facebook AI) para processamento de fala. Ele foi projetado para tarefas como reconhecimento automático de fala (ASR, Automatic Speech Recognition) e transcrição de áudio em texto. A abordagem do Wav2Vec é baseada em aprendizado auto-supervisionado, o que significa que ele pode ser treinado em grandes quantidades de dados de áudio não rotulados, tornando-o altamente eficiente e escalável.
 
-
-
 ---
 
 ## Origem do Dataset
@@ -23,20 +21,13 @@ A estrutura do dataset pode incluir:
 
 ---
 
-## Uso do Dataset
-### Pré-treinamento:
+## Aplicações
 - Transcrição de áudio para texto (speech-to-text).
 - Compreensão de fala em várias línguas.
 - Tarefas como detecção de emoções em voz, segmentação de áudio e síntese de voz.
 
 
-
 ---
-
-## Datasets pre treinados
-
-![](C:\Users\Gustavo\Pictures\Modelospretreinados.png)
-
 
 ---
 ## Como usar
@@ -85,3 +76,4 @@ transcription = processor.batch_decode(predicted_ids)
 ## Referências
 - [Repositório do Wav2Vec 2.0](https://github.com/facebookresearch/fairseq/tree/main/examples/wav2vec#wav2vec-20)
 - [Artigo publicado](https://arxiv.org/abs/2006.11477)
+- [Hugging face](https://huggingface.co/facebook/wav2vec2-base-960h)
