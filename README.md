@@ -25,13 +25,17 @@ A estrutura do dataset pode incluir:
 
 ## Uso do Dataset
 ### Pré-treinamento:
-- O modelo aprende representações de áudio diretamente a partir dos dados brutos.
-- Essa fase **não requer rótulos**.
+- Transcrição de áudio para texto (speech-to-text).
+- Compreensão de fala em várias línguas.
+- Tarefas como detecção de emoções em voz, segmentação de áudio e síntese de voz.
 
-### Fine-tuning:
-- Com um pequeno conjunto de dados rotulados, o modelo é ajustado para tarefas específicas, como **reconhecimento de fala**.
+
 
 ---
+
+## Datasets pre treinados
+
+![](C:/imagens/modelospretreinados.png)
 
 
 ---
