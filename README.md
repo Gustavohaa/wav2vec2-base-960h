@@ -35,7 +35,7 @@ A estrutura do dataset pode incluir:
 
 ## Datasets pre treinados
 
-![](C:/imagens/modelospretreinados.png)
+![](C:\Users\Gustavo\Pictures\Modelospretreinados.png)
 
 
 ---
