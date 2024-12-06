@@ -33,6 +33,33 @@ A estrutura do dataset pode incluir:
 
 ---
 
+
+---
+## Como usar
+
+ from transformers import Wav2Vec2Processor, Wav2Vec2ForCTC
+ from datasets import load_dataset
+ import torch
+ 
+ # load model and tokenizer
+ processor = Wav2Vec2Processor.from_pretrained("facebook/wav2vec2-base-960h")
+ model = Wav2Vec2ForCTC.from_pretrained("facebook/wav2vec2-base-960h")
+     
+ # load dummy dataset and read soundfiles
+ ds = load_dataset("patrickvonplaten/librispeech_asr_dummy", "clean", split="validation")
+ 
+ # tokenize
+ input_values = processor(ds[0]["audio"]["array"], return_tensors="pt", padding="longest").input_values  # Batch size 1
+ 
+ # retrieve logits
+ logits = model(input_values).logits
+ 
+ # take argmax and decode
+ predicted_ids = torch.argmax(logits, dim=-1)
+ transcription = processor.batch_decode(predicted_ids)
+
+---
+
 ## Benefícios do Dataset
 - **Alta eficiência**: Resultados de ponta com menos dados rotulados.
 - **Flexibilidade**: Pode ser usado para diversos idiomas e aplicações.
@@ -47,6 +74,14 @@ O dataset está disponível no repositório do **Wav2Vec 2.0**. Você pode:
 
 ---
 
+##Autores
+- Alexei Baevski
+- Henry Zhou
+- Abdelrahman Mohamed
+- Michael Auli
+
+---
+
 ## Referências
 - [Repositório do Wav2Vec 2.0](https://github.com/facebookresearch/fairseq/tree/main/examples/wav2vec#wav2vec-20)
-- Artigo original: *"wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations"* (Paper)
+- [Artigo publicado](https://arxiv.org/abs/2006.11477)
