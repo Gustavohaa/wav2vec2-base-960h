@@ -37,6 +37,7 @@ A estrutura do dataset pode incluir:
 ---
 ## Como usar
 
+```python
 from transformers import Wav2Vec2Processor, Wav2Vec2ForCTC
 from datasets import load_dataset
 import torch
